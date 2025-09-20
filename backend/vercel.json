@@ -4,10 +4,12 @@
     { "src": "api/**/*.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/health", "dest": "api/health.js" },
-    { "src": "/auth/login", "dest": "api/auth-login.js" },
-    { "src": "/notes$", "dest": "api/notes/index.js" },
-    { "src": "/notes/(.*)", "dest": "api/notes/$1.js" },
-    { "src": "/tenants/(?<slug>[^/]+)/upgrade", "dest": "api/tenants/[slug]/upgrade.js" }
+    { "src": "/health$", "dest": "/api/health.js" },
+    { "src": "/auth/login$", "dest": "/api/auth-login.js" },
+
+    { "src": "/notes$", "dest": "/api/notes/index.js" },
+    { "src": "/notes/(?<id>[^/]+)$", "dest": "/api/notes/[id].js?id=$id" },
+
+    { "src": "/tenants/(?<slug>[^/]+)/upgrade$", "dest": "/api/tenants/[slug]/upgrade.js?slug=$slug" }
   ]
 }
