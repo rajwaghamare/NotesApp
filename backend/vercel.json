@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs18.x"
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
     }
-  },
-  "rewrites": [
-    { "source": "/health", "destination": "/api/health.js" },
-    { "source": "/auth/login", "destination": "/api/auth-login.js" },
-    { "source": "/notes", "destination": "/api/notes/index.js" },
-    { "source": "/notes/:path*", "destination": "/api/notes/:path*.js" },
-    { "source": "/tenants/:slug/upgrade", "destination": "/api/tenants/[slug]/upgrade.js" }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api/$1"
+    }
   ]
 }
