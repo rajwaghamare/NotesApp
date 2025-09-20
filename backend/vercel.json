@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "routes": [
+    { "src": "/health", "dest": "/api/health" },
+    { "src": "/auth/login", "dest": "/api/auth-login" },
+    { "src": "/notes$", "dest": "/api/notes/index" },
+    { "src": "/notes/(.*)", "dest": "/api/notes/$1" },
+    { "src": "/tenants/(?<slug>[^/]+)/upgrade", "dest": "/api/tenants/[slug]/upgrade" }
+  ]
+}
