@@ -1,2 +1,9 @@
 node_modules/
 .env/
+# mac/IDE
+.DS_Store
+.idea/
+
+# mac/IDE
+.DS_Store
+.idea/
